@@ -11,7 +11,7 @@ public class IplScoreDao {
 			int a = 10;
 			int b = 0;
 			String s=null;
-//			System.out.println(a / b);
+			
 
 		} catch (ArithmeticException e) {
 			

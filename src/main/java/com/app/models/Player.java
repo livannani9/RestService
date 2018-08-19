@@ -1,5 +1,9 @@
 package com.app.models;
-
+/**
+ * 
+ * @author Rahulbodapatla
+ *
+ */
 public class Player {
 	private String name;
 	private String team;

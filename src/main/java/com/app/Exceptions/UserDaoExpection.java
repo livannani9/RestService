@@ -2,12 +2,13 @@ package com.app.Exceptions;
 
 public class UserDaoExpection extends RuntimeException {
 	
+	private static final long serialVersionUID = -6439438176277114685L;
 	private int reasonCode;
 	private String reason;
 	private String message;
 	
 	public UserDaoExpection(int reasonCode, String reason, String message) {
-		super();
+		super(message);
 		this.reasonCode = reasonCode;
 		this.reason = reason;
 		this.message = message;

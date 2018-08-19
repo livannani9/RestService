@@ -88,6 +88,7 @@ public class iplScore {
 				IplScoreDao dao=new IplScoreDao();
 				dao.registerPlayer();
 				
+				
 			} catch (UserDaoExpection e) {
 				iplResponce.setErrorCode(e.getReasonCode()+"");
 				iplResponce.setErrorMessage(e.getMessage());
