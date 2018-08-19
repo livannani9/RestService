@@ -56,44 +56,48 @@ public class iplScore {
 			iplResponce.setErrorCode("121");
 			iplResponce.setErrorMessage("Name Should not be Empty...");
 			iplResponce.setResponceDate(null);
-			System.out.println("Responce at server= " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
-			
-			return Response.status(200).entity(iplResponce).build();
+			System.out.println(
+					"Responce at server= " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
+
+			return Response.status(500).entity(iplResponce).build();
+
 		} else if (player.getMobile() == null || player.getMobile().isEmpty()) {
 			iplResponce.setErrorCode("122");
 			iplResponce.setErrorMessage("Mobile Number In Valid");
 			iplResponce.setResponceDate(null);
-			System.out.println("Responce at server= " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
-		
+			System.out.println(
+					"Responce at server= " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
+			return Response.status(500).entity(iplResponce).build();
 
-			return Response.status(200).entity(iplResponce).build();
 		} else if (player.getEmail() == null || player.getEmail().isEmpty()) {
 			iplResponce.setErrorCode("123");
 			iplResponce.setErrorMessage("eMail not valid");
 			iplResponce.setResponceDate(null);
-			System.out.println("Responce at server= " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
-		
+			System.out.println(
+					"Responce at server= " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
 
-			return Response.status(200).entity(iplResponce).build();
+			return Response.status(500).entity(iplResponce).build();
+
 		} else if (player.getTeam() == null || player.getTeam().isEmpty()) {
 			iplResponce.setErrorCode("124");
 			iplResponce.setErrorMessage("team is should not be null & Empty");
 			iplResponce.setResponceDate(null);
-			System.out.println("Responce at server=" + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
-		
+			System.out
+					.println("Responce at server=" + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage());
 
-			return Response.status(200).entity(iplResponce).build();
+			return Response.status(500).entity(iplResponce).build();
+
 		} else {
 			try {
-				IplScoreDao dao=new IplScoreDao();
+				IplScoreDao dao = new IplScoreDao();
 				dao.registerPlayer();
-				
-				
+
 			} catch (UserDaoExpection e) {
-				iplResponce.setErrorCode(e.getReasonCode()+"");
+				iplResponce.setErrorCode(e.getReasonCode() + "");
 				iplResponce.setErrorMessage(e.getMessage());
 				iplResponce.setResponceDate(null);
-				return Response.status(200).entity(iplResponce).build();
+
+				return Response.status(500).entity(iplResponce).build();
 			}
 
 			iplResponce.setErrorCode("000");
@@ -139,18 +143,19 @@ public class iplScore {
 			iplResponce.setErrorCode("124");
 			iplResponce.setErrorMessage("team is should not be null & Empty");
 			iplResponce.setResponceDate(null);
-			System.out.println("Responce set=  " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage()+iplResponce.getResponceDate());
+			System.out.println("Responce set=  " + iplResponce.getErrorCode() + "  " + iplResponce.getErrorMessage()
+					+ iplResponce.getResponceDate());
 		} else {
-			
+
 			try {
-				IplScoreDao dao=new IplScoreDao();
+				IplScoreDao dao = new IplScoreDao();
 				dao.registerPlayer();
-				
+
 			} catch (UserDaoExpection e) {
-				iplResponce.setErrorCode(e.getReasonCode()+"");
+				iplResponce.setErrorCode(e.getReasonCode() + "");
 				iplResponce.setErrorMessage(e.getMessage());
-				
-				//return Response.status(500).entity(iplResponce).build();
+
+				// return Response.status(500).entity(iplResponce).build();
 			}
 
 			iplResponce.setErrorCode("000");
